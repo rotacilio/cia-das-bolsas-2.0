@@ -9,6 +9,7 @@ import android.widget.Toast
 import br.com.rotacilio.ciadasbolsas.R
 import br.com.rotacilio.ciadasbolsas.commons.Utils
 import br.com.rotacilio.ciadasbolsas.domain.Category
+import br.com.rotacilio.ciadasbolsas.fragments.UpdateCategoryDialog
 import br.com.rotacilio.ciadasbolsas.listeners.OnCompleteRequestListener
 import br.com.rotacilio.ciadasbolsas.listeners.OnConfirmDialogSelectionListener
 import br.com.rotacilio.ciadasbolsas.requests.CategoriesRequests
@@ -53,6 +54,11 @@ class CategoriesAdapter(val activity: CategoriesActivity) : RecyclerView.Adapter
                     dialogInterface.dismiss()
                 }
             })
+        }
+        holder.itemView.setOnClickListener {
+            val fragmentManager = activity.supportFragmentManager
+            val dialogFragment = UpdateCategoryDialog.newInstance(activity, category)
+            dialogFragment.show(fragmentManager, dialogFragment.tag)
         }
     }
 

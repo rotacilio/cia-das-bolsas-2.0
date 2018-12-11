@@ -1,20 +1,21 @@
 package br.com.rotacilio.ciadasbolsas.views
 
 import android.app.ProgressDialog
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Toast
 import br.com.rotacilio.ciadasbolsas.R
 import br.com.rotacilio.ciadasbolsas.adapters.CategoriesAdapter
 import br.com.rotacilio.ciadasbolsas.domain.Category
+import br.com.rotacilio.ciadasbolsas.fragments.CreateCategoryDialog
 import br.com.rotacilio.ciadasbolsas.listeners.OnCompleteRequestListener
 import br.com.rotacilio.ciadasbolsas.requests.CategoriesRequests
 import kotlinx.android.synthetic.main.activity_categories.*
+import kotlinx.android.synthetic.main.content_categories_list.*
 
 class CategoriesActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -67,6 +68,9 @@ class CategoriesActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.fabNewCategory -> {
+                val fragmentManager = supportFragmentManager
+                val dialogFragment = CreateCategoryDialog.newInstance(this)
+                dialogFragment.show(fragmentManager, dialogFragment.tag)
             }
         }
     }
@@ -81,10 +85,10 @@ class CategoriesActivity : AppCompatActivity(), View.OnClickListener {
         if (mProgressDialog == null) {
             mProgressDialog = ProgressDialog(this)
         }
-        mProgressDialog!!.setMessage(getString(strId))
-        mProgressDialog!!.setCancelable(false)
         if (!refreshLayoutCategories.isRefreshing
             && !mProgressDialog?.isShowing!!) {
+            mProgressDialog!!.setMessage(getString(strId))
+            mProgressDialog!!.setCancelable(false)
             mProgressDialog!!.show()
         }
     }
@@ -93,4 +97,5 @@ class CategoriesActivity : AppCompatActivity(), View.OnClickListener {
         if (mProgressDialog != null) {
             mProgressDialog!!.dismiss()
         }
-    }}
+    }
+}

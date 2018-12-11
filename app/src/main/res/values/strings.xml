@@ -18,4 +18,9 @@
     <string name="no">Não</string>
     <string name="remove_confirm_dialog_title">Remover Item</string>
     <string name="remove_confirm_dialog_message">Deseja realmente remover o item selecionado?</string>
+    <string name="name">Nome</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Salvar</string>
+    <string name="error_message_empty_category_name">O nome da categoria não pode ser vazio</string>
+    <string name="saving">Salvando...</string>
 </resources>

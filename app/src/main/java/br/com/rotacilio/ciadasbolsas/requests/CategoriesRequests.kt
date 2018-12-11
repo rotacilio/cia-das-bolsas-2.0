@@ -29,15 +29,29 @@ class CategoriesRequests(val context: Context) {
 
     fun updateCategory(category: Category, listener: OnCompleteRequestListener<Category>) {
         val dbReference = FirebaseDatabase.getInstance().reference
-        dbReference.child("/categories/${category.key}")
-            .setValue(category)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    listener.success(category)
-                } else {
-                    listener.fail(it.exception?.message)
+        dbReference.child("/products")
+            .orderByChild("category/key")
+            .equalTo(category.key).addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(dbError: DatabaseError) {
+                    listener.fail(dbError.message)
                 }
-            }
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val childUpdate = mutableMapOf<String, Any?>()
+                    childUpdate["/categories/${category.key}"] = category
+                    if (dataSnapshot.hasChildren()) {
+                        for (dtSnapshot in dataSnapshot.children) {
+                            childUpdate["/products/${dtSnapshot.child("key").value}/category"] = category
+                        }
+                    }
+                    dbReference.updateChildren(childUpdate).addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            listener.success(category)
+                        } else {
+                            listener.fail(it.exception?.message)
+                        }
+                    }
+                }
+            })
     }
 
     fun loadAllCategories(listener: OnCompleteRequestListener<MutableList<Category>>) {

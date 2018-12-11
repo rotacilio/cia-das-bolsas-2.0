@@ -8,4 +8,6 @@
     <color name="purple900">#4a148c</color>
     <color name="green700">#388e3c</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="backgroundSeparator">#CCCCCC</color>
+    <color name="colorTransparent">@android:color/transparent</color>
 </resources>
