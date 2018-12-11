@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "964625557195",
+    "firebase_url": "https://cia-das-bolsas.firebaseio.com",
+    "project_id": "cia-das-bolsas",
+    "storage_bucket": "cia-das-bolsas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964625557195:android:3f27302a1417e061",
+        "android_client_info": {
+          "package_name": "br.com.ciadasbolsas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964625557195-dmgd9bjgrok0vsq1pa0nsu0slscjcfkl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.ciadasbolsas",
+            "certificate_hash": "1661772ff1c2ff6037158c5bfb953406470fd88f"
+          }
+        },
+        {
+          "client_id": "964625557195-69k8ec031thq1nkcll0roeakpfiss8u7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqPwnfQVutevao47anoUAeA-rdL2xZGgg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964625557195-69k8ec031thq1nkcll0roeakpfiss8u7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964625557195:android:aec9dff7a3782b63",
+        "android_client_info": {
+          "package_name": "br.com.rotacilio.ciadasbolsas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964625557195-69k8ec031thq1nkcll0roeakpfiss8u7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqPwnfQVutevao47anoUAeA-rdL2xZGgg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

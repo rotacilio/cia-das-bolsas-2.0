@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Cia. das Bolsas</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="categories">Categorias</string>
+    <string name="products">Produtos</string>
+    <string name="new_category">Nova Categoria</string>
+    <string name="error_message_category_has_children">Não é possível excluir esta categoria, a mesma possui produtos
+        associados
+    </string>
+    <string name="loading">Carregando...</string>
+    <string name="removing_category">Apagando categoria...</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="remove_confirm_dialog_title">Remover Item</string>
+    <string name="remove_confirm_dialog_message">Deseja realmente remover o item selecionado?</string>
+</resources>
