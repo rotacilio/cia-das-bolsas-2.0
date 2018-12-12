@@ -15,13 +15,17 @@ import br.com.rotacilio.ciadasbolsas.listeners.OnConfirmDialogSelectionListener
 import br.com.rotacilio.ciadasbolsas.requests.CategoriesRequests
 import br.com.rotacilio.ciadasbolsas.views.CategoriesActivity
 import kotlinx.android.synthetic.main.categories_list_item.view.*
+import java.util.*
 
 class CategoriesAdapter(val activity: CategoriesActivity) : RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
 
+    var mCategoriesBkp = mutableListOf<Category>()
     var mCategories = mutableListOf<Category>()
         set(value) {
             field.clear()
             field.addAll(value)
+            mCategoriesBkp.clear()
+            mCategoriesBkp.addAll(value)
             notifyDataSetChanged()
         }
 
@@ -60,6 +64,21 @@ class CategoriesAdapter(val activity: CategoriesActivity) : RecyclerView.Adapter
             val dialogFragment = UpdateCategoryDialog.newInstance(activity, category)
             dialogFragment.show(fragmentManager, dialogFragment.tag)
         }
+    }
+
+    fun filter(newText: String) {
+        var queryText = newText.toLowerCase(Locale.getDefault())
+        mCategories.clear()
+        if (queryText.isEmpty()) {
+            mCategories.addAll(mCategoriesBkp)
+        } else {
+            for (cat in mCategoriesBkp) {
+                if (cat.name?.toLowerCase(Locale.getDefault())?.contains(queryText)!!) {
+                    mCategories.add(cat)
+                }
+            }
+        }
+        notifyDataSetChanged()
     }
 
     inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

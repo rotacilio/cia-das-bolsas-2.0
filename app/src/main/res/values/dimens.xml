@@ -10,4 +10,7 @@
     <dimen name="margin72">72dp</dimen>
     <dimen name="padding8">8dp</dimen>
     <dimen name="padding24">24dp</dimen>
+    <dimen name="margin12">12dp</dimen>
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="height48">48dp</dimen>
 </resources>

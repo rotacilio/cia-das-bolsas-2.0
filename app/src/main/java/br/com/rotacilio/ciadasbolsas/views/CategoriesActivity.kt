@@ -6,6 +6,7 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.SearchView
 import android.view.View
 import android.widget.Toast
 import br.com.rotacilio.ciadasbolsas.R
@@ -27,12 +28,22 @@ class CategoriesActivity : AppCompatActivity(), View.OnClickListener {
         loadData()
     }
 
+    private val queryTextListener = object : SearchView.OnQueryTextListener {
+        override fun onQueryTextSubmit(p0: String?): Boolean = false
+        override fun onQueryTextChange(newText: String?): Boolean {
+            mAdapter?.filter(newText!!)
+            return false
+        }
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_categories)
 
         fabNewCategory.setOnClickListener(this)
         refreshLayoutCategories.setOnRefreshListener(refreshListener)
+        searchViewCategories.setOnQueryTextListener(queryTextListener)
 
         configureRecyclerView()
         loadData()
